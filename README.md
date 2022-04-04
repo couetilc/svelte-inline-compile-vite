@@ -17,8 +17,9 @@ npm install svelte-inline-compile-vite
 Add it to your vitest.config.js:
 
 ```js
+// file: vitest.config.js
 import { defineConfig } from 'vitest/config';
-import { SvelteInlineCompile } from './index.js';
+import { SvelteInlineCompile } from 'svelte-inline-compile-vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 
 export default defineConfig(() => {
