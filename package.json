@@ -1,0 +1,20 @@
+{
+  "name": "svelte-inline-compile-vite",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./index.js",
+  "scripts": {
+    "test": "vitest test.js"
+  },
+  "dependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.40",
+    "better-sqlite3": "^7.5.0",
+    "fs-extra": "^10.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/svelte": "^3.1.0",
+    "jsdom": "^19.0.0",
+    "svelte": "^3.46.6",
+    "vitest": "^0.8.4"
+  }
+}
