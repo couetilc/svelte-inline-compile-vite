@@ -54,6 +54,12 @@ export function SvelteInlineCompile() {
   return {
     name: 'svelte-inline-compile',
 
+    resolve(id) {
+      if (id.startsWith(moduleId)) {
+        return id;
+      }
+    },
+
     load(id) {
       if (id.startsWith(moduleId)) {
         const hash = id.replace(moduleId, '').replace(extension, '');
