@@ -14,7 +14,32 @@ Install using your package manager:
 npm install svelte-inline-compile-vite
 ```
 
-Add it to your vitest.config.js along with [vitest-svelte-kit](https://github.com/nickbreaton/vitest-svelte-kit)
+Add it to your vitest.config.js:
+
+```js
+import { defineConfig } from 'vitest/config';
+import { SvelteInlineCompile } from './index.js';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
+
+export default defineConfig(() => {
+  return {
+    plugins: [
+      svelte({
+        extensions: ['.svelte'],
+        compilerOptions: {
+          hydratable: false,
+        }
+      }),
+      SvelteInlineCompile(),
+    ],
+    test: {
+      environment: 'jsdom',
+    }
+  }
+});
+```
+
+If you're using SvelteKit, use it with [vitest-svelte-kit](https://github.com/nickbreaton/vitest-svelte-kit)
 
 ```js
 // file: vitest.config.js
@@ -40,8 +65,8 @@ export default defineConfig(async () => {
 ## Usage
 
 Import the `svelte` function and pass it your svelte component template as a
-string or tagged template literal. It returns a promise, representing the pending
-dynamic import, which you need to await.
+string or tagged template literal. It returns the pending dynamic import as a
+promise you need to await.
 
 Check it out in a test:
 
